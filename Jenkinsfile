@@ -5,6 +5,7 @@ pipeline {
       // Install the Maven version configured as "M3" and add it to the path.
       maven "Maven3.6.3"
    }
+
    stages {
       stage('Build') {
          steps {
@@ -26,11 +27,6 @@ pipeline {
                 always {
                     junit 'target/surefire-reports/*.xml'
                 }
-            }
-        }
-      stage('Deliver') {
-            steps {
-                sh './jenkins/scripts/deliver.sh'
             }
         }
    }
